@@ -1,0 +1,54 @@
+﻿@model Projekat1.Models.MainModel
+
+@{
+    ViewBag.Title = "Unos Auta";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+
+<div class="sadrzaj">
+    <h2 class="naslov">Unos Auta</h2>
+
+    @using (Html.BeginForm("UnosAuta", "Site", FormMethod.Post))
+    {
+        <div>
+            <label>Marka auta:</label>
+            @Html.TextBoxFor(x => x.Automobili.Marka)
+            <label>Model auta:</label>
+            @Html.TextBoxFor(x => x.Automobili.Model)
+
+            <label>Fotografija:</label>
+            @Html.TextBoxFor(x => x.Automobili.Fotografija)
+
+            <hr>
+
+            <label>Cena automobila:</label>
+            @Html.TextBoxFor(x => x.Automobili.Cena)
+
+            <label>Popust:</label>
+            @Html.TextBoxFor(x => x.Automobili.Popust)
+
+            <label>Tip:</label>
+            @Html.DropDownListFor(x => x.Automobili.Tip, new SelectList(ViewBag.vrsta, ViewBag.vrsta))
+        </div>
+        <div>
+            <label>Placanje ratama:</label>
+            <label>@Html.RadioButtonFor(x => x.Automobili.Rate, "Bez rata")Bez rata</label>
+            <label>@Html.RadioButtonFor(x => x.Automobili.Rate, "12 rata")12 rata</label>
+            <label>@Html.RadioButtonFor(x => x.Automobili.Rate, "24 rate")24 rate</label>
+
+            <hr />
+
+            <label>Godiste:</label>
+            @Html.TextBoxFor(x => x.Automobili.Godiste)
+
+            <label>Broj vrata:</label>
+            @Html.TextBoxFor(x => x.Automobili.BrojVrata)
+
+            <label>Opis automobila:</label>
+            <br />
+            @Html.TextAreaFor(x => x.Automobili.Opis)
+        </div>
+
+        <input type="submit" value="POTVRDI" id="dugme">
+    }
+</div>

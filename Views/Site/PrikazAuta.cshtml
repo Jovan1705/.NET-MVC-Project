@@ -1,0 +1,27 @@
+﻿@model Projekat1.Models.MainModel
+@using Projekat1.Helperi
+@{
+    ViewBag.Title = "Prikaz Auta";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+
+<div class="sadrzaj">
+    <img src="@Model.Automobili.Fotografija" />
+    <h2>@Model.Automobili.Marka</h2>
+    <h2>@Model.Automobili.Model</h2>
+    <h2>Cena:</h2>
+    @helperi.popustHelper(Model.Automobili.Cena, Model.Automobili.Popust)
+    @if (Model.Automobili.Popust > 0)
+    {
+        <h3>Popust: @Model.Automobili.Popust%</h3>
+    }
+    <h3>Tip: @Model.Automobili.Tip</h3>
+    <h3>Broj vrata: @Model.Automobili.BrojVrata</h3>
+    @if (Model.Automobili.Rate != "Bez rata")
+    {
+        <h3>Mogucnost placanja na rate:@Model.Automobili.Rate</h3>
+    }
+
+    <h3>Opis proizvoda: @Model.Automobili.Opis</h3>
+</div>
+
